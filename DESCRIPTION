@@ -8,4 +8,4 @@ Description: Handy for dealing with tutors when learning qpcr experiments.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Imports: ggpubr,psych,tidyverse,dplyr.
+Imports: ggpubr,psych,tidyverse,dplyr
