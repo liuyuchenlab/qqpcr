@@ -1,6 +1,6 @@
-# qqpcr 
-# 在学习qPCR实验时写的，可以便捷获得relative expression方法，可将结果拿到其他软件绘图
-# 这个代码应该只能用于两个组每组两个样本，对照组放上面。
+# qqpcr！ 
+### 在学习qPCR实验时写的，可以便捷获得relative expression方法，可将结果拿到其他软件绘图
+###### 这个代码应该只能用于两个组每组两个样本，对照组放上面。
 
 
 library(devtools)  
