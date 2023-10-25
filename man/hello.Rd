@@ -1,12 +1,12 @@
 \name{hello}
 \alias{hello}
-\title{Hello, World!}
+\title{QQPCR!}
 \usage{
 hello()
 }
 \description{
-Prints 'Hello, world!'.
+Quickly analyze qpcr data
 }
 \examples{
-hello()
+result <- qqpcr(PCR,"Gapdh")
 }
