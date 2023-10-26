@@ -9,7 +9,7 @@ devtools::install_github('liuyuchenlab/qqpcr')
 
 library(qqpcr)  
 
-###### 只能用PCR命名
+###### 只能用PCR命名or not  
 
 PCR <-read.csv('test.csv')  
 
