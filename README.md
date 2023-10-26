@@ -9,7 +9,9 @@ devtools::install_github('liuyuchenlab/qqpcr')
 
 library(qqpcr)  
 
-PCR <-read.csv('test.csv')#只能用这个命名和文件格式  
+###### 只能用PCR命名和示例文件的格式  
+
+PCR <-read.csv('test.csv')  
 
 ###### Gapdh可以换成其他基因，这一步可以得到相对表达量和三个图片：  
 
