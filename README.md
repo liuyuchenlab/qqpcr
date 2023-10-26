@@ -19,6 +19,18 @@ PCR <-read.csv('test.csv')
 
 result <- qqpcr(PCR,'Gapdh')  
 
+##### 柱形图  
+![image](https://github.com/liuyuchenlab/qqpcr/assets/131852185/0d421abe-6cc9-47fc-be97-1622fe80c0c9)  
+
+##### p值柱形图  
+![image](https://github.com/liuyuchenlab/qqpcr/assets/131852185/df40ac97-74ea-4642-87c4-be2d18c1851e)  
+
+##### 显著性标记柱形图  
+
+![image](https://github.com/liuyuchenlab/qqpcr/assets/131852185/303d40f6-083b-4fe0-993e-3954ed8609cb)  
+
+
+
 ###### 保存相对表达量  
 
 write.csv(result,'Gapdh_relative.csv') 
