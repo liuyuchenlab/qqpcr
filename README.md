@@ -7,6 +7,8 @@ library(devtools)
 
 devtools::install_github('liuyuchenlab/qqpcr')  
 
+###### 如果连接失败，尝试Win+R，输入inetcpl.cpl 直接打开Internet选项。打开后，在高级中勾选使用TLS 1.0、使用TLS 1.1、使用TLS 1.2、使用TLS 1.3。
+
 library(qqpcr)  
 
 ###### 只能用PCR命名or not  
