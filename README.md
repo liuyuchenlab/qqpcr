@@ -16,7 +16,7 @@ library(qqpcr)
 
 ###### 只能用PCR命名or not  
 
-PCR <-read.csv('test.csv')  
+PCR <- read.csv('test.csv')  
 
 ###### Gapdh可以换成其他基因，这一步可以得到相对表达量和三个图片：  
 
