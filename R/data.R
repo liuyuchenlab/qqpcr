@@ -1,0 +1,5 @@
+#' @examples
+#'
+#' head(PCR)
+
+"PCR"
