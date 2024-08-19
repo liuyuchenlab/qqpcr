@@ -29,7 +29,7 @@ data(PCR)
 ###### p值和显著性标记的位置在分组超过3个时会比较乱，可以去AI或者PS里平移到合适位置
 ###### p值计算使用近似T检验，但我感觉算得不太对，可能是因为示例数据样本量每组只有两个，这边还是建议只拿relative数据
 
-result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")  
+results <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")  
 
 ##### 柱形图  
 ![image](https://github.com/user-attachments/assets/e6645e0a-d706-4de7-af60-32a649079b49)
@@ -51,7 +51,7 @@ result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
 
 custom_colors <- c("#FF0000", "#00FF00", "#0000FF")  # 用户自定义的颜色
 
-result <- qqpcr(PCR, 'Gapdh', 'control', breaks = list(c(4, 5), c(14, 15), c(20, 21)), custom_colors = custom_colors)
+results <- qqpcr(PCR, 'Gapdh', 'control', breaks = list(c(4, 5), c(14, 15), c(20, 21)), custom_colors = custom_colors)
 
 ###### 也可以自定义保存
 
