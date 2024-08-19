@@ -19,8 +19,8 @@ library(qqpcr)
 ###### 内置数据
 ![image](https://github.com/user-attachments/assets/0cf6077a-b55e-4271-8b1f-2c25b360efe4)
 
-
-PCR <- read.csv('test.csv')  
+data(PCR)
+#PCR <- read.csv('test.csv')  
 
 ###### Gapdh可以换成其他基因，这一步可以得到相对表达量和三个图片：  
 
