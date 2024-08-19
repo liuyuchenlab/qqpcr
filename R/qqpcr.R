@@ -105,8 +105,8 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
   p_value_data <- summary_stats %>%
     left_join(result_df, by = c("Gene", "group")) %>%
     mutate(
-      label_y_p = upper_ci*1.2,  # p 值的位置
-      label_y_signif = upper_ci*1.2,  # 显著性标记的位置
+      label_y_p = upper_ci*1.1,  # p 值的位置
+      label_y_signif = upper_ci*1.1,  # 显著性标记的位置
       label_p = ifelse(!is.na(p_value), paste0("p = ", format(p_value, digits = 2)), ""),
       label_signif = case_when(
         !is.na(p_value) & p_value < 0.001 ~ "***",
@@ -119,7 +119,7 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
     )
 
   # 默认颜色设置
-  default_colors <- c("#008ccc","#c34a36" , "#ff7f0e", "#c7b363","#8c564b", "#845ec2", "#d65db1", "#2ca02c", "#d62728","#2f4858", "#00c9a7")
+  default_colors <- c("#008ccc","#c34a36" , "#c7b363" ,"#2f4858","#8c564b","#ff7f0e", "#845ec2", "#d65db1", "#2ca02c", "#d62728", "#00c9a7")
 
   # 使用用户自定义颜色（如果提供了）或默认颜色
   group_colors <- if (is.null(custom_colors)) {
