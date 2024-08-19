@@ -43,7 +43,7 @@ result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
 
 ![image](https://github.com/user-attachments/assets/cbad41dc-86df-4f37-bfaf-5dff88143e38)
 
-###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值
+###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值还有一张basic图片
 ![image](https://github.com/user-attachments/assets/949b6eb3-e931-4b80-86fd-720bb36115e5)
 
 
