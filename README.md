@@ -26,7 +26,7 @@ PCR <- read.csv('test.csv')
 
 ###### 图片在plot里没有保存，第一张是普通的柱形图，第二张加上了p值，第三张加上了显著性标记 
 ###### p值和显著性标记的位置在分组超过3个时会比较乱
-###### p值计算使用近似T检验，但我感觉算得不太对，这边还是建议只拿relative数据
+###### p值计算使用近似T检验，但我感觉算得不太对，可能是因为示例数据样本量每组只有两个，这边还是建议只拿relative数据
 
 result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")  
 
@@ -42,14 +42,20 @@ result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
 
 ![image](https://github.com/user-attachments/assets/cbad41dc-86df-4f37-bfaf-5dff88143e38)
 
-###### 函数运行时会自动保存行列转换的CT值、相对表达值和p值
-![image](https://github.com/user-attachments/assets/99b5ed57-7a70-4fa4-a594-51b4af1aea46)
+###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值
+![image](https://github.com/user-attachments/assets/949b6eb3-e931-4b80-86fd-720bb36115e5)
+
 
 ##### 也可以添加自定义颜色和截断
 
 custom_colors <- c("#FF0000", "#00FF00", "#0000FF")  # 用户自定义的颜色
 
 result <- qqpcr(PCR, 'Gapdh', 'control', breaks = list(c(4, 5), c(14, 15), c(20, 21)), custom_colors = custom_colors)
+
+###### 也可以自定义保存
+
+![image](https://github.com/user-attachments/assets/44836f5f-9995-40b2-b1ba-1ef4b036154c)
+
 
 
 
