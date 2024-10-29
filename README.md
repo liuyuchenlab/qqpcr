@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/19b1e52d-0d6f-43fd-934f-65901edf67e3)# qqpcr！ 
+# qqpcr！ 
 ###### 在学习qPCR实验时写的，可以一键获得相对表达量
 ##### 安装
 
