@@ -1,4 +1,4 @@
-# qqpcr！ 
+![image](https://github.com/user-attachments/assets/19b1e52d-0d6f-43fd-934f-65901edf67e3)# qqpcr！ 
 ###### 在学习qPCR实验时写的，可以一键获得相对表达量
 ##### 安装
 
@@ -35,13 +35,11 @@ results <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
 ##### 柱形图  
 ![image](https://github.com/user-attachments/assets/e88aaf11-bacf-46d7-bea7-db0787323342)
 
-
 ##### p值柱形图  
-![image](https://github.com/user-attachments/assets/27470812-6286-4e86-8ac2-74a0a7b72fd8)
+![image](https://github.com/user-attachments/assets/6498d295-17fe-4fc0-ad6c-c0fdf9a4f439)
 
 ##### 显著性标记柱形图  
 ![image](https://github.com/user-attachments/assets/0bd87dce-9cad-432c-8626-0d473a13eb75)
-
 
 ###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值还有一张basic图片到自动创建的当前的日期的文件夹中
 ![image](https://github.com/user-attachments/assets/5f8052c7-84cc-4bd9-92d3-ca7012261c1b)
