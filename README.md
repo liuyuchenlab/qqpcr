@@ -41,7 +41,7 @@ results <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
 ##### 显著性标记柱形图  
 ![image](https://github.com/user-attachments/assets/0bd87dce-9cad-432c-8626-0d473a13eb75)
 
-###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值还有一张basic图片到自动创建的当前的日期的文件夹中
+###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值还有一张basic图片到自动创建的文件夹中，文件夹名为当天的日期。
 ![image](https://github.com/user-attachments/assets/5f8052c7-84cc-4bd9-92d3-ca7012261c1b)
 
 ##### 默认只有16个颜色，也可以添加自定义颜色和截断
