@@ -20,6 +20,7 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
   suppressMessages(library(tidyverse))
   suppressMessages(library(dplyr))
   suppressMessages(library(ggbreak))
+
   # 检查 control_group 是否在 PCR$group 中
   if (!(control_group %in% unique(PCR$group))) {
     stop(paste("Error: The control group", control_group, "does not exist in the PCR data. Please check the group names."))
@@ -105,9 +106,9 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
   p_value_data <- summary_stats %>%
     left_join(result_df, by = c("Gene", "group")) %>%
     mutate(
-      label_y_p = upper_ci*1.1,  # p 值的位置
-      label_y_signif = upper_ci*1.1,  # 显著性标记的位置
-      label_p = ifelse(!is.na(p_value), paste0("p = ", format(p_value, digits = 2)), ""),
+      label_y_p = upper_ci * 1.1,  # p 值的位置
+      label_y_signif = upper_ci * 1.1,  # 显著性标记的位置
+      label_p = ifelse(!is.na(p_value), paste0("p = ", format(p_value, digits = 2, scientific = FALSE)), ""),
       label_signif = case_when(
         !is.na(p_value) & p_value < 0.001 ~ "***",
         !is.na(p_value) & p_value < 0.01 ~ "**",
@@ -119,7 +120,7 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
     )
 
   # 默认颜色设置
-  default_colors <- c("#008ccc","#c34a36" , "#c7b363" ,"#2f4858","#8c564b","#ff7f0e", "#845ec2", "#d65db1", "#2ca02c", "#d62728", "#00c9a7")
+  default_colors <- c("#1072BD", "#D7592C","#7F318D","#77AE43", "#EDB021","#acc", "#c34a56", "#c7b363", "#2f4858", "#8c564b", "#ff7f0e", "#845ec2", "#d65db1", "#2ca02c", "#d62728", "#00c9a7")
 
   # 使用用户自定义颜色（如果提供了）或默认颜色
   group_colors <- if (is.null(custom_colors)) {
@@ -139,7 +140,17 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
                        position = position_dodge(width = 0.8),
                        xlab = "", ylab = 'Relative expression', legend = 'right',
                        ggtheme = theme_classic()) +
-    scale_y_continuous(limits = c(0, max_upper_ci * 1.4), expand = c(0, 0))  # 设置 y 轴范围，并增加空白以显示标记
+    scale_y_continuous(limits = c(0, max_upper_ci * 1.4), expand = c(0, 0)) + # 设置 y 轴范围，并增加空白以显示标记
+    theme(
+      legend.title = element_text(size = 13, face = "bold"),
+      legend.text = element_text(size = 12, face = "bold"),
+      axis.text.x = element_text(angle = 45, hjust = 1, size = 12, face = "bold"),
+      axis.text.y = element_text(size = 10, face = "bold"),
+      axis.title.y = element_text(size = 14, face = "bold"),
+      axis.line.x = element_line(linetype = 1, color = "black", size = 0.8),
+      axis.line.y = element_line(linetype = 1, color = "black", size = 0.8),
+      plot.title = element_text(size = 15, color = "red", face = "bold")) +
+    labs(title = paste("Relative to", control_group, "(", reference_gene, ")"))
 
   # 如果提供了 breaks 参数
   if (!is.null(breaks) && length(breaks) > 0) {
@@ -180,30 +191,39 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
   # 数据格式转换
   PCR_Ct <- t(PCR_Ct)
   PCR_relative <- t(PCR_relative)
+
   # 移除列名
   colnames(PCR_Ct) <- NULL
   colnames(PCR_relative) <- NULL
+
   # 获取当前日期
   current_date <- format(Sys.Date(), "%Y-%m-%d")
 
+  # 创建日期文件夹
+  dir.create(current_date, showWarnings = FALSE)
+
   # 创建带日期和内参基因名的文件名
-  ct_filename <- paste0("PCR_Ct_", current_date, ".csv")
-  relative_filename <- paste0("PCR_relative_", reference_gene, "_" , current_date ,".csv")
+  ct_filename <- file.path(current_date, paste0(control_group, "_", reference_gene, "_PCR_Ct_", current_date, ".csv"))
+  relative_filename <- file.path(current_date, paste0(control_group, "_", reference_gene, "_PCR_relative_", current_date, ".csv"))
+
   # 创建带日期的p值文件名
-  p_value_filename <- paste0("p_values_", "relative_to_", reference_gene, "_" ,current_date, ".csv")
+  p_value_filename <- file.path(current_date, paste0(control_group, "_", reference_gene, "_p_values_", current_date, ".csv"))
   result_df <- result_df[,-2]
+
   # 保存 p 值数据到 CSV 文件
-  write.csv(result_df, file = p_value_filename, row.names = F)
+  write.csv(result_df, file = p_value_filename, row.names = FALSE)
   # 确保列名不被写入文件中
-  write.csv(PCR_Ct, file = ct_filename, row.names = T)
-  write.csv(PCR_relative, file = relative_filename, row.names = T)
+  write.csv(PCR_Ct, file = ct_filename, row.names = TRUE)
+  write.csv(PCR_relative, file = relative_filename, row.names = TRUE)
 
   # 创建带日期的统计信息文件名
-  summary_stats_filename <- paste0("summary_stats_", reference_gene, "_", current_date, ".csv")
+  summary_stats_filename <- file.path(current_date, paste0(control_group, "_", reference_gene, "_summary_stats_", current_date, ".csv"))
   # 保存 summary_stats 数据到 CSV 文件
-  write.csv(summary_stats, file = summary_stats_filename, row.names = F)
+  write.csv(summary_stats, file = summary_stats_filename, row.names = FALSE)
+
   # 保存图形
-  ggsave(paste0("Relative_expression_", current_date, ".pdf"), plot = p_basic, width = 10, height = 6)
+  ggsave(file.path(current_date, paste0(control_group, "_", reference_gene, "_Relative_expression_", current_date, ".pdf")), plot = p_basic, width = 10, height = 6)
+
   # 返回包含Ct值、相对表达量、统计信息和图形的列表
   return(list(PCR_Ct = PCR_Ct,
               PCR_relative = PCR_relative,
