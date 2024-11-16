@@ -120,7 +120,7 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
     )
 
   # 默认颜色设置
-  default_colors <- c("#1072BD", "#D7592C","#7F318D","#77AE43", "#EDB021","#acc", "#c34a56", "#c7b363", "#2f4858", "#8c564b", "#ff7f0e", "#845ec2", "#d65db1", "#2ca02c", "#d62728", "#00c9a7")
+  default_colors <- c("#1072BD", "#D7592C","#7F318D","#77AE43", "#EDB021","#acc012", "#c34a56", "#c7b363", "#2f4858", "#8c564b", "#ff7f0e", "#845ec2", "#d65db1", "#2ca02c", "#d62728", "#00c9a7")
 
   # 使用用户自定义颜色（如果提供了）或默认颜色
   group_colors <- if (is.null(custom_colors)) {
