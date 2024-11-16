@@ -48,13 +48,16 @@ results <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
 ```
 custom_colors <- c("#FF0000", "#00FF00", "#0000FF")  # 用户自定义的颜色
 
-results <- qqpcr(PCR, 'Gapdh', 'control', breaks = list(c(4, 5), c(14, 15), c(20, 21)), custom_colors = custom_colors)
-
-![image](https://github.com/user-attachments/assets/37c5eb37-9907-4978-be8c-afdfa5a649e0)
+results <- qqpcr(PCR, 'Gapdh', 'control',  breaks = list(c(4, 10), c(14, 20),c(25,30)), custom_colors = custom_colors)
 
 ```
-###### 也可以自定义保存
+##### 示例展示
+![plot_zoom_png](https://github.com/user-attachments/assets/79e13b2c-06e6-41a3-a904-d706bf6d915e)
+
+##### 也可以自定义保存
 ![image](https://github.com/user-attachments/assets/b661ec38-b609-431c-b799-658d3f0577bc)
+
+### 快去试试吧！
 
 
 
