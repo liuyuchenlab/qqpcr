@@ -1,19 +1,22 @@
-#####qqpcr!
-# Hello, world!
-#' Title
-#'
-#' @param PCR PCR_name
-#' @param reference_gene reference_gene
-#' @param control_group control_group
-#' @param breaks breaks
-#' @param custom_colors custom_colors
-#'
-#' @return relative expression and plots
-#' @export
-#'
-#' @examples
-#' data(PCR)
-#' results  <- qqpcr(PCR,'Gapdh',"control")
+# 初始化环境
+renv::init()
+# 如果包为使用时必须的，则需要设置 type = "Imports"
+usethis::use_package(package = "ggpubr", type = "Imports")
+usethis::use_package(package = "psych", type = "Imports")
+usethis::use_package(package = "tidyverse", type = "depends")
+usethis::use_package(package = "ggbreak", type = "Imports")
+usethis::use_package(package = "dplyr", type = "depends")
+usethis::use_package(package = "rstatix", type = "depends")
+# 保存当前所用的包环境
+renv::snapshot()
+#创建 README
+usethis::use_readme_rmd()
+# 通过 RStudio 的 File > New File > R Script 也一样
+file.create("R/qqpcr.R")
+#生成内置数据
+PCR <-read.csv("test.csv")
+usethis::use_data(PCR)
+#自定义函数#
 qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colors = NULL) {
   suppressMessages(library(ggpubr))
   suppressMessages(library(psych))
@@ -199,4 +202,21 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
               p_with_p = p_padj,
               p_with_signif = p_signif))
 }
-#ok
+
+
+# 示例数据读取和函数调用
+# PCR <- read.csv("/mnt/data/your_file_name.csv")
+# result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
+# print(result$p)
+# print(result$p_value_plot)
+# print(result$p_signif_plot)
+
+# 示例数据读取和函数调用
+# PCR <- read.csv("/mnt/data/your_file_name.csv")
+# result <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")
+data(PCR)
+#PCR <-read.csv("1.csv")
+results  <- qqpcr(PCR,'Rps18',"treat")
+custom_colors <- c("#FF0000", "#00FF00", "#0000FF")  # 用户自定义的颜色
+# 示例 breaks 参数定义了多个截断
+result <- qqpcr(PCR, 'Gapdh', 'control', breaks = list(c(5,6), c(14, 15), c(20, 21)), custom_colors = custom_colors)
