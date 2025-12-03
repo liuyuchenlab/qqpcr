@@ -27,19 +27,21 @@ data(PCR)
 ###### Gapdh可以换成其他基因，这一步可以得到相对表达量和三个图片：  
 
 ###### 图片在plot里，第一张是普通的柱形图，第二张加上了p值，第三张加上了显著性标记 
-###### p值和显著性标记的位置是根据分组设置高度的，可以去AI或者PS里平移到合适位置
-###### p值计算使用近似T检验，可以使用relative数据去其他知名软件计算并绘图
+###### p值计算使用T检验得到的padj，可以使用relative数据去其他知名软件计算并绘图
 ```
 results <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")  
 ```
 ##### 柱形图  
-![image](https://github.com/user-attachments/assets/e88aaf11-bacf-46d7-bea7-db0787323342)
+<img width="936" height="512" alt="image" src="https://github.com/user-attachments/assets/8ddba6a5-2200-4c29-8923-048d804d0d92" />
+
 
 ##### p值柱形图  
-![image](https://github.com/user-attachments/assets/6498d295-17fe-4fc0-ad6c-c0fdf9a4f439)
+<img width="936" height="512" alt="image" src="https://github.com/user-attachments/assets/de4b8999-b895-4ce1-8037-05ba3a1f210a" />
+
 
 ##### 显著性标记柱形图  
-![image](https://github.com/user-attachments/assets/0bd87dce-9cad-432c-8626-0d473a13eb75)
+<img width="936" height="512" alt="image" src="https://github.com/user-attachments/assets/d33a2997-5dda-4e6d-a5f4-8e7f43fc9c9c" />
+
 
 ###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值还有一张basic图片到自动创建的文件夹中，文件夹名为当天的日期。
 ![image](https://github.com/user-attachments/assets/5f8052c7-84cc-4bd9-92d3-ca7012261c1b)
