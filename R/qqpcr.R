@@ -136,7 +136,9 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
         theme(
           axis.line.y.right = element_blank(),  # 去掉右边的y轴线
           axis.ticks.y.right = element_blank(),  # 去掉右边的y轴刻度线
-          axis.text.y.right = element_blank()    # 去掉右边的y轴标签
+          axis.text.y.right = element_blank()  ,  # 去掉右边的y轴标签
+          axis.title.y = element_text(size = 15, face = "bold", vjust = 1),
+          plot.margin = margin(t = 5, r = 5, b = 5, l = 20, unit = "mm")
         )
     }
   }
@@ -199,4 +201,5 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
               p_with_p = p_padj,
               p_with_signif = p_signif))
 }
+
 #ok
