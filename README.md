@@ -23,7 +23,8 @@ data(PCR)
 <img width="693" height="549" alt="image" src="https://github.com/user-attachments/assets/b36a27be-41ac-4fff-85ac-6dad5dfab318" />
 
 
-###### 读取数据（只能用PCR命名or not）  
+###### 读取自己的数据（只能用PCR命名or not）  
+##### 保持数据格式统一
 <img width="680" height="472" alt="image" src="https://github.com/user-attachments/assets/883941ac-9d84-4496-b0b7-daa50fe12a60" />
 
 ```
