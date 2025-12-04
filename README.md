@@ -38,7 +38,10 @@ PCR <- read.xlsx("test.xlsx") #推荐此方式
 ###### 图片在plot里，第一张是普通的柱形图，第二张加上了p值，第三张加上了显著性标记 
 ###### p值计算使用T检验得到的padj，可以使用relative数据去其他知名软件计算并绘图
 ```
-results <- qqpcr(PCR, reference_gene = "Gapdh", control_group = "control")  
+results <- qqpcr(PCR, 
+                 reference_gene = "Gapdh",  
+                 control_group = "control"
+                 )  
 ```
 ##### 柱形图  
 <img width="936" height="512" alt="image" src="https://github.com/user-attachments/assets/cbf53aaf-25f2-4a1e-a4b5-cc01ae56aa52" />
