@@ -21,6 +21,7 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
   suppressMessages(library(dplyr))
   suppressMessages(library(ggbreak))
   suppressMessages(library(rstatix))
+  suppressMessages(library(openxlsx))
   # 检查 control_group 是否在 PCR$group 中
   if (!(control_group %in% unique(PCR$group))) {
     stop(paste("Error: The control group", control_group, "does not exist in the PCR data. Please check the group names."))
@@ -201,5 +202,6 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
               p_with_p = p_padj,
               p_with_signif = p_signif))
 }
+
 
 #ok

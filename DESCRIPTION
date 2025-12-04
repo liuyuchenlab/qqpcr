@@ -16,5 +16,6 @@ Imports:
     ggbreak
 RoxygenNote: 7.3.2
 Depends: 
-    R (>= 2.10),
+    openxlsx,
+    R (>= 3.5),
     rstatix
