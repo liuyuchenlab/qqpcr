@@ -16,8 +16,10 @@ devtools::install_github('liuyuchenlab/qqpcr')
 library(qqpcr)  
 ```
 
-###### 内置数据
+###### 内置数据格式
+```
 data(PCR)
+```
 <img width="693" height="549" alt="image" src="https://github.com/user-attachments/assets/b36a27be-41ac-4fff-85ac-6dad5dfab318" />
 
 
