@@ -24,10 +24,13 @@ data(PCR)
 
 
 ###### 读取数据（只能用PCR命名or not）  
+<img width="680" height="472" alt="image" src="https://github.com/user-attachments/assets/883941ac-9d84-4496-b0b7-daa50fe12a60" />
+
 ```
 #PCR <- read.csv('test.csv')
 PCR <- read.xlsx("test.xlsx") #推荐此方式
 ```
+
 ###### Gapdh可以换成其他基因，这一步可以得到相对表达量和三个图片：  
 
 ###### 图片在plot里，第一张是普通的柱形图，第二张加上了p值，第三张加上了显著性标记 
