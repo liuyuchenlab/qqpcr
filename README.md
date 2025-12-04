@@ -27,6 +27,7 @@ data(PCR)
 ##### 保持数据格式统一
 <img width="680" height="472" alt="image" src="https://github.com/user-attachments/assets/883941ac-9d84-4496-b0b7-daa50fe12a60" />
 
+
 ```
 #PCR <- read.csv('test.csv')
 PCR <- read.xlsx("test.xlsx") #推荐此方式
