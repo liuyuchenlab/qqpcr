@@ -40,7 +40,7 @@ qqpcr <- function(PCR, reference_gene, control_group, breaks = NULL, custom_colo
     dct <- PCR[[target_genes[i]]] - PCR[[reference_gene]]
     control_mean <- mean(dct[PCR$group == control_group], na.rm = TRUE)
     ddct <- dct - control_mean
-    relative <- 2^-ddct
+    relative <- 1.9^-ddct
     col_name <- target_genes[i]
     PCR[[col_name]] <- relative
     results[[i]] <- data.frame(Gene = target_genes[i], Relative = relative, group = PCR$group)
