@@ -52,7 +52,7 @@ results <- qqpcr(PCR,
 ##### 显著性标记柱形图  
 <img width="936" height="512" alt="image" src="https://github.com/user-attachments/assets/21e99ab7-44c6-45c1-b05d-aef4be241ecd" />
 
-###### 函数运行时会自动保存行列转换的CT值、相对表达值、统计数据和p值还有一张basic图片到自动创建的文件夹中，文件夹名为当天的日期。
+###### 函数运行时会自动保存行列转换的CT值、相对表达值[1.9^-(∆∆Ct)]、统计数据和p值还有一张basic图片到自动创建的文件夹中，文件夹名为当天的日期。
 ![image](https://github.com/user-attachments/assets/5f8052c7-84cc-4bd9-92d3-ca7012261c1b)
 
 ##### 默认只有16个颜色，也可以添加自定义颜色和截断
